@@ -6,7 +6,6 @@
 #include <unistd.h>
 #include <cstring>
 #include <iostream>
-
 using namespace std;
 
 const string HTTP_REDIRECT_MSG = "HTTP/1.0 302 Redirect\r\nLocation: http://warning.or.kr\r\n\r\n";
@@ -212,7 +211,7 @@ int main(int argc, char *argv[])
     string pattern = argv[2];
 
     char errbuf[PCAP_ERRBUF_SIZE];
-    pcap_t *handle = pcap_open_live(interface, BUFSIZ, 1, 1000, errbuf); // 핸들생성
+    pcap_t *handle = pcap_open_live(interface, BUFSIZ, 1, 1, errbuf); // 핸들생성
     if (handle == nullptr)
     {
         cerr << "pcap_open_live failed: " << errbuf << endl;
